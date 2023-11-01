@@ -1,0 +1,16 @@
+{
+  "details": {
+    "wind": "wind",
+    "speed": "Speed",
+    "degree": "Degree",
+    "direction": "Direction",
+    "conditions": "conditions",
+    "pressure": "Pressure",
+    "precipitation": "Precipitation",
+    "humidity": "Humidity",
+    "visibility": "Visibility",
+    "cloud_cover": "cloud cover",
+    "feels_like": "feels like",
+    "uv_index": "UV index"
+  }
+}

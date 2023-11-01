@@ -34,6 +34,7 @@ class DetailsHeader extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
                     SafeArea(
+                      bottom: false,
                       child: Text(
                         city,
                         style: AppFonts.header(),
@@ -59,6 +60,7 @@ class DetailsHeader extends StatelessWidget {
           ),
         ),
         SafeArea(
+          bottom: false,
             child: Padding(
           padding: const EdgeInsets.only(left: 15),
           child: BackButton(

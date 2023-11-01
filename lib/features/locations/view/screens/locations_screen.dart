@@ -48,7 +48,7 @@ class LocationsScreen extends StatelessWidget {
               },
               city: response.location.name,
               country: response.location.country,
-              temperature: 12,
+              temperature: response.current.temperature,
             ),
           )
         ],

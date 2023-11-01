@@ -27,7 +27,7 @@ CurrentForecast _$CurrentForecastFromJson(Map<String, dynamic> json) =>
       humidity: json['humidity'] as int,
       uvIndex: json['uv_index'] as int,
       visibility: json['visibility'] as int,
-      feelsLike: json['feelslike'] as int,
+      feelsLike: (json['feelslike'] as num).toDouble(),
       cloudCover: json['cloudcover'] as int,
     );
 

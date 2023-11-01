@@ -41,7 +41,7 @@ class CurrentForecast {
   @JsonKey(name: 'precip')
   final int precipitation;
   @JsonKey(name: 'feelslike')
-  final int feelsLike;
+  final double feelsLike;
   @JsonKey(name: 'cloudcover')
   final int cloudCover;
 }
