@@ -14,6 +14,7 @@ class LocationsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final DateTime now = DateTime.now();
     final List<ForecastResponse> locations = <ForecastResponse>[
       ForecastResponse.fromJson(testWeatherResponse)
     ];
@@ -28,12 +29,12 @@ class LocationsScreen extends StatelessWidget {
               children: <Widget>[
                 const SizedBox(height: 10),
                 Text(
-                  DateFormat('EEEE').format(DateTime.now()),
+                  DateFormat('EEEE').format(now),
                   textAlign: TextAlign.center,
                   style: AppFonts.header(),
                 ),
                 Text(
-                  '${DateFormat('d').format(DateTime.now())} ${DateFormat('MMMM').format(DateTime.now())} ${DateFormat('yyyy').format(DateTime.now())}',
+                  '${DateFormat('d').format(now)} ${DateFormat('MMMM').format(now)} ${DateFormat('yyyy').format(now)}',
                   textAlign: TextAlign.center,
                   style: AppFonts.body(),
                 ),
