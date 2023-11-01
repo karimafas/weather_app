@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:weather_app/common/router/app_router.dart';
 
@@ -27,16 +28,17 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
+
     return MaterialApp.router(
       title: 'Weather Forecast App',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.deepPurple,
-          background: Colors.white,
-        ),
-        useMaterial3: true,
-        textTheme: GoogleFonts.montserratTextTheme(),
-      ),
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.deepPurple,
+            background: Colors.white,
+          ),
+          useMaterial3: true,
+          textTheme: GoogleFonts.montserratTextTheme()),
       routerConfig: appRouter.config(),
       debugShowCheckedModeBanner: false,
       localizationsDelegates: context.localizationDelegates,

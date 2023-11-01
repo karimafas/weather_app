@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:weather_app/common/extensions/double.dart';
 import 'package:weather_app/common/styles/app_images.dart';
 import 'package:weather_app/features/details/view/widgets/details_header.dart';
@@ -22,72 +23,84 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SizedBox.expand(
-        child: ListView(
-            padding: const EdgeInsets.only(bottom: 35),
-            children: <Widget>[
-              DetailsHeader(
-                city: location.name,
-                country: location.country,
-                temperature: current.temperature,
-                descriptions: current.weatherDescriptions,
-              ),
-              const SizedBox(height: 25),
-              LargeInfoBox(
-                  index: 1,
-                  iconPath: AppImages.wind.path,
-                  title: 'details.wind'.tr(),
-                  entries: <(String, String)>[
-                    ('details.speed'.tr(), '${current.windSpeed} km/h'),
-                    ('details.degree'.tr(), '${current.windDegree}'),
-                    ('details.direction'.tr(), current.windDirection),
-                  ]),
-              const SizedBox(height: 25),
-              LargeInfoBox(
-                  index: 2,
-                  iconPath: AppImages.conditions.path,
-                  title: 'details.conditions'.tr(),
-                  entries: <(String, String)>[
-                    ('details.pressure'.tr(), '${current.pressure} MB'),
-                    (
-                      'details.precipitation'.tr(),
-                      '${current.precipitation} mm'
-                    ),
-                    ('details.humidity'.tr(), '${current.humidity}%'),
-                    ('details.visibility'.tr(), '${current.visibility} km'),
-                  ]),
-              const SizedBox(height: 25),
-              Row(
+        child: Stack(
+          children: <Widget>[
+            ListView(
+                padding: const EdgeInsets.only(bottom: 50),
                 children: <Widget>[
-                  Expanded(
-                    child: TallInfoBox(
-                      index: 3,
-                      imagePath: AppImages.cloud.path,
-                      iconPath: AppImages.clouds.path,
-                      title: 'details.cloud_cover'.tr(),
-                      value: '${current.cloudCover}%',
-                    ),
+                  DetailsHeader(
+                    city: location.name,
+                    country: location.country,
+                    temperature: current.temperature,
+                    descriptions: current.weatherDescriptions,
                   ),
-                  Expanded(
-                      child: Column(
+                  const SizedBox(height: 25),
+                  LargeInfoBox(
+                      index: 1,
+                      iconPath: AppImages.wind.path,
+                      title: 'details.wind'.tr(),
+                      entries: <(String, String)>[
+                        ('details.speed'.tr(), '${current.windSpeed} km/h'),
+                        ('details.degree'.tr(), '${current.windDegree}'),
+                        ('details.direction'.tr(), current.windDirection),
+                      ]),
+                  const SizedBox(height: 25),
+                  LargeInfoBox(
+                      index: 2,
+                      iconPath: AppImages.conditions.path,
+                      title: 'details.conditions'.tr(),
+                      entries: <(String, String)>[
+                        ('details.pressure'.tr(), '${current.pressure} MB'),
+                        (
+                          'details.precipitation'.tr(),
+                          '${current.precipitation} mm'
+                        ),
+                        ('details.humidity'.tr(), '${current.humidity}%'),
+                        ('details.visibility'.tr(), '${current.visibility} km'),
+                      ]),
+                  const SizedBox(height: 25),
+                  Row(
                     children: <Widget>[
-                      SmallInfoBox(
-                        iconPath: AppImages.thermometer.path,
-                        title: 'details.feels_like'.tr(),
-                        value: current.feelsLike.formatTemperature(),
-                        index: 4,
+                      Expanded(
+                        child: TallInfoBox(
+                          index: 3,
+                          imagePath: AppImages.cloud.path,
+                          iconPath: AppImages.clouds.path,
+                          title: 'details.cloud_cover'.tr(),
+                          value: '${current.cloudCover}%',
+                        ),
                       ),
-                      const SizedBox(height: 25),
-                      SmallInfoBox(
-                        iconPath: AppImages.thermometer.path,
-                        title: 'details.uv_index'.tr(),
-                        value: '${current.uvIndex}',
-                        index: 5,
-                      ),
+                      Expanded(
+                          child: Column(
+                        children: <Widget>[
+                          SmallInfoBox(
+                            iconPath: AppImages.thermometer.path,
+                            title: 'details.feels_like'.tr(),
+                            value: current.feelsLike.formatTemperature(),
+                            index: 4,
+                          ),
+                          const SizedBox(height: 25),
+                          SmallInfoBox(
+                            iconPath: AppImages.thermometer.path,
+                            title: 'details.uv_index'.tr(),
+                            value: '${current.uvIndex}',
+                            index: 5,
+                          ),
+                        ],
+                      ))
                     ],
-                  ))
-                ],
-              )
-            ]),
+                  ),
+                ]),
+            SafeArea(
+                bottom: false,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 15),
+                  child: BackButton(
+                    onPressed: () => context.popRoute(),
+                  ),
+                )).animate(delay: 500.ms).fadeIn()
+          ],
+        ),
       ),
     );
   }

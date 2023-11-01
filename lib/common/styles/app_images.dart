@@ -2,7 +2,6 @@ enum AppImages {
   conditions,
   cloud,
   clouds,
-  share,
   sun,
   thermometer,
   wind;
