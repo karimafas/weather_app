@@ -10,13 +10,15 @@ CurrentForecast _$CurrentForecastFromJson(Map<String, dynamic> json) =>
     CurrentForecast(
       observationTime: json['observation_time'] as String,
       windDirection: json['wind_dir'] as String,
-      weatherIcons: (json['weather_icons'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
-      weatherDescriptions: (json['weather_descriptions'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
-      temperature: json['temperature'] as int,
+      weatherIcons: (json['weather_icons'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      weatherDescriptions: (json['weather_descriptions'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      temperature: (json['temperature'] as num).toDouble(),
       weatherCode: json['weather_code'] as int,
       windSpeed: json['wind_speed'] as int,
       windDegree: json['wind_degree'] as int,

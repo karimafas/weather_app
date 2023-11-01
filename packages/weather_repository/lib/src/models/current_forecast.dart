@@ -28,9 +28,10 @@ class CurrentForecast {
   final String observationTime;
   @JsonKey(name: 'wind_dir')
   final String windDirection;
+  @JsonKey(defaultValue: <String>[])
   final List<String> weatherIcons, weatherDescriptions;
-  final int temperature,
-      weatherCode,
+  final double temperature;
+  final int weatherCode,
       windSpeed,
       windDegree,
       pressure,

@@ -2,8 +2,6 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:http_service/http_service.dart';
-import 'package:http_service/src/enums/http_request_type.dart';
-import 'package:http_service/src/models/api_response.dart';
 import 'package:logger_service/logger_service.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
