@@ -8,6 +8,8 @@ environment:
 
 dependencies:
   json_annotation: ^4.8.1
+  http_service:
+    path: ../http_service
 
 dev_dependencies:
   build_runner: ^2.4.6
