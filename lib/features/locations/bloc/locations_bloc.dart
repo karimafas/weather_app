@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:http_service/http_service.dart';
+import 'package:weather_app/features/constants/locations_to_load.dart';
 import 'package:weather_repository/weather_repository.dart';
 
 part 'locations_event.dart';
@@ -17,12 +18,7 @@ class LocationsBloc extends Bloc<LocationsEvent, LocationsState> {
   Future<void> _loadInitialLocations(
       LoadInitialLocations event, Emitter<LocationsState> emit) async {
     final List<ForecastResponse> forecastResponses = <ForecastResponse>[];
-    final List<String> locationsToLoad = <String>[
-      'London, UK',
-      'Manchester, UK',
-      'Brighton, UK',
-      'Birmingham, UK'
-    ];
+
     for (final String location in locationsToLoad) {
       final ApiResponse<ForecastResponse> result =
           await weatherRepository.getCurrentForecast(location);

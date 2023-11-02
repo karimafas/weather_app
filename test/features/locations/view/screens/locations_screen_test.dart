@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:weather_app/features/locations/view/screens/locations_screen.dart';
 
-import '../../../utils/widget_utils.dart';
+import '../../../../utils/widget_utils.dart';
 
 void main() {
   group('$LocationsScreen', () {

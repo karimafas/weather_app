@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:weather_app/features/locations/view/widgets/location_card.dart';
 
-import '../../../utils/widget_utils.dart';
+import '../../../../utils/widget_utils.dart';
 
 void main() {
   const String city = 'city';
