@@ -5,14 +5,10 @@ import 'package:mocktail/mocktail.dart';
 import 'package:weather_app/features/locations/bloc/locations_bloc.dart';
 import 'package:weather_repository/weather_repository.dart';
 
-import '../../../data/test_weather_response.dart';
-
-class MockWeatherRepository extends Mock implements WeatherRepository {}
+import '../../../data/common_test_data.dart';
 
 void main() {
   final Exception exception = Exception('Could not load forecast.');
-  final ForecastResponse forecastResponse =
-      ForecastResponse.fromJson(testWeatherResponse);
 
   group('$LocationsBloc', () {
     late MockWeatherRepository weatherRepository;
@@ -27,17 +23,17 @@ void main() {
       'it should emit $LocationsSuccess if at least 1 weather forecast response is returned by the repository',
       build: () {
         when(() => weatherRepository.getCurrentForecast(any())).thenAnswer(
-          (_) async => ApiSuccess<ForecastResponse>(forecastResponse),
+          (_) async => ApiSuccess<ForecastResponse>(testForecastResponse),
         );
         return bloc;
       },
       act: (LocationsBloc bloc) => bloc.add(const LoadInitialLocations()),
       expect: () => <LocationsState>[
         LocationsSuccess(<ForecastResponse>[
-          forecastResponse,
-          forecastResponse,
-          forecastResponse,
-          forecastResponse
+          testForecastResponse,
+          testForecastResponse,
+          testForecastResponse,
+          testForecastResponse
         ])
       ],
       verify: (LocationsBloc bloc) {
