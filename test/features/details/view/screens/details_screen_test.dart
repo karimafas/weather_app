@@ -6,9 +6,9 @@ import 'package:weather_app/features/details/view/widgets/details_header.dart';
 import 'package:weather_app/features/details/view/widgets/large_info_box.dart';
 import 'package:weather_app/features/details/view/widgets/small_info_box.dart';
 import 'package:weather_app/features/details/view/widgets/tall_info_box.dart';
-import 'package:weather_app/features/locations/view/screens/test_response.dart';
 import 'package:weather_repository/weather_repository.dart';
 
+import '../../../../data/test_weather_response.dart';
 import '../../../../utils/widget_utils.dart';
 
 void main() {

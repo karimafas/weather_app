@@ -34,7 +34,7 @@ void main() {
       expect(
           containerWithImage.decoration,
           equals(ShapeDecoration(
-            color: AppColors.grey,
+            color: AppColors.medium,
             shape: AppShapes.smoothRectangle(),
             image: DecorationImage(
               image: AssetImage(imagePath),

@@ -25,7 +25,7 @@ class SmallInfoBox extends StatelessWidget {
       padding: const EdgeInsets.only(top: 15, left: 15, right: 15, bottom: 8),
       decoration: ShapeDecoration(
         shape: AppShapes.smoothRectangle(),
-        color: AppColors.grey,
+        color: AppColors.medium,
       ),
       width: double.infinity,
       child: Column(

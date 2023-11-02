@@ -30,8 +30,8 @@ class CurrentForecast {
   final String windDirection;
   @JsonKey(defaultValue: <String>[])
   final List<String> weatherIcons, weatherDescriptions;
-  final double temperature;
-  final int weatherCode,
+  final double temperature,
+      weatherCode,
       windSpeed,
       windDegree,
       pressure,
@@ -39,9 +39,9 @@ class CurrentForecast {
       uvIndex,
       visibility;
   @JsonKey(name: 'precip')
-  final int precipitation;
+  final double precipitation;
   @JsonKey(name: 'feelslike')
   final double feelsLike;
   @JsonKey(name: 'cloudcover')
-  final int cloudCover;
+  final double cloudCover;
 }

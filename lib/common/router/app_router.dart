@@ -13,7 +13,7 @@ class AppRouter extends _$AppRouter {
         CustomRoute(
           page: DetailsRoute.page,
           transitionsBuilder: TransitionsBuilders.fadeIn,
-          durationInMilliseconds: 600,
+          durationInMilliseconds: 700,
         )
       ];
 }

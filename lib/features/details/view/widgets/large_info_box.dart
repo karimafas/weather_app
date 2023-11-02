@@ -26,7 +26,7 @@ class LargeInfoBox extends StatelessWidget {
       padding: const EdgeInsets.all(15),
       decoration: ShapeDecoration(
         shape: AppShapes.smoothRectangle(),
-        color: AppColors.grey,
+        color: AppColors.medium,
       ),
       width: double.infinity,
       child: Column(children: <Widget>[

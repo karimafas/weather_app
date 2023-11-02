@@ -96,6 +96,7 @@ class DetailsScreen extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 15),
                   child: BackButton(
+                    color: Colors.white,
                     onPressed: () => context.popRoute(),
                   ),
                 )).animate(delay: 500.ms).fadeIn()

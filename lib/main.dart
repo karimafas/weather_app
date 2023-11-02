@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:weather_app/common/router/app_router.dart';
+import 'package:weather_app/common/services/service_locator.dart';
+import 'package:weather_app/common/styles/app_colors.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  await ServiceLocator.registerSingletons();
 
   const Locale englishLocale = Locale('en');
   runApp(EasyLocalization(
@@ -35,7 +38,7 @@ class _AppState extends State<App> {
       theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
             seedColor: Colors.deepPurple,
-            background: Colors.white,
+            background: AppColors.background,
           ),
           useMaterial3: true,
           textTheme: GoogleFonts.montserratTextTheme()),

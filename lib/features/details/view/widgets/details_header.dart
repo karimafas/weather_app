@@ -24,7 +24,7 @@ class DetailsHeader extends StatelessWidget {
       child: Material(
         child: Container(
           width: double.infinity,
-          color: AppColors.grey,
+          color: AppColors.medium,
           padding: const EdgeInsets.symmetric(vertical: 30),
           child: SingleChildScrollView(
             physics: const NeverScrollableScrollPhysics(),

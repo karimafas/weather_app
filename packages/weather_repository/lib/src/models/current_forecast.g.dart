@@ -19,16 +19,16 @@ CurrentForecast _$CurrentForecastFromJson(Map<String, dynamic> json) =>
               .toList() ??
           [],
       temperature: (json['temperature'] as num).toDouble(),
-      weatherCode: json['weather_code'] as int,
-      windSpeed: json['wind_speed'] as int,
-      windDegree: json['wind_degree'] as int,
-      pressure: json['pressure'] as int,
-      precipitation: json['precip'] as int,
-      humidity: json['humidity'] as int,
-      uvIndex: json['uv_index'] as int,
-      visibility: json['visibility'] as int,
+      weatherCode: (json['weather_code'] as num).toDouble(),
+      windSpeed: (json['wind_speed'] as num).toDouble(),
+      windDegree: (json['wind_degree'] as num).toDouble(),
+      pressure: (json['pressure'] as num).toDouble(),
+      precipitation: (json['precip'] as num).toDouble(),
+      humidity: (json['humidity'] as num).toDouble(),
+      uvIndex: (json['uv_index'] as num).toDouble(),
+      visibility: (json['visibility'] as num).toDouble(),
       feelsLike: (json['feelslike'] as num).toDouble(),
-      cloudCover: json['cloudcover'] as int,
+      cloudCover: (json['cloudcover'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$CurrentForecastToJson(CurrentForecast instance) =>

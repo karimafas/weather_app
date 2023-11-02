@@ -1,4 +1,7 @@
 {
+  "locations": {
+    "error": "There was an error loading weather locations. Try again later!"
+  },
   "details": {
     "wind": "wind",
     "speed": "Speed",

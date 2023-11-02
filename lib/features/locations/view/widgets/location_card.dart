@@ -32,7 +32,7 @@ class LocationCard extends StatelessWidget {
             width: double.infinity,
             height: 100,
             decoration: ShapeDecoration(
-                shape: AppShapes.smoothRectangle(), color: AppColors.grey),
+                shape: AppShapes.smoothRectangle(), color: AppColors.medium),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[

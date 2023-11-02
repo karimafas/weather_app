@@ -57,7 +57,7 @@ class HttpService {
       final T2 decodedBody = jsonDecode(response.body) as T2;
       return ApiSuccess<T1>(onResult(decodedBody));
     } catch (e) {
-      logger.error('API call responded an exception: $e');
+      logger.error('API call exception: $e');
       return ApiError<T1>(e);
     } finally {
       client!.close();

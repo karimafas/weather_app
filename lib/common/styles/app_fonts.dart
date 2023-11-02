@@ -4,7 +4,7 @@ class AppFonts {
   static TextStyle header(
           {Color? color, double? fontSize, FontWeight? fontWeight}) =>
       TextStyle(
-        color: color ?? Colors.black,
+        color: color ?? Colors.white,
         fontSize: fontSize ?? 22,
         fontWeight: fontWeight ?? FontWeight.bold,
       );
@@ -12,7 +12,7 @@ class AppFonts {
   static TextStyle body(
           {Color? color, double? fontSize, FontWeight? fontWeight}) =>
       TextStyle(
-        color: color ?? Colors.black,
+        color: color ?? Colors.white,
         fontSize: fontSize ?? 16,
         fontWeight: fontWeight ?? FontWeight.normal,
       );
