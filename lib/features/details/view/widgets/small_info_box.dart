@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:weather_app/common/styles/app_colors.dart';
 import 'package:weather_app/common/styles/app_fonts.dart';
 import 'package:weather_app/common/styles/app_shapes.dart';
 import 'package:weather_app/features/details/view/widgets/icon_with_title.dart';
@@ -25,7 +24,7 @@ class SmallInfoBox extends StatelessWidget {
       padding: const EdgeInsets.only(top: 15, left: 15, right: 15, bottom: 8),
       decoration: ShapeDecoration(
         shape: AppShapes.smoothRectangle(),
-        color: AppColors.medium,
+        color: Theme.of(context).colorScheme.primary,
       ),
       width: double.infinity,
       child: Column(
@@ -34,7 +33,8 @@ class SmallInfoBox extends StatelessWidget {
             IconWithTitle(iconPath: iconPath, title: title),
             Text(
               value,
-              style: AppFonts.header(fontSize: 40),
+              style: AppFonts.header(
+                  fontSize: 40, color: Theme.of(context).colorScheme.secondary),
             )
           ]),
     ).animate(delay: (150 * index).ms).fadeIn(duration: 600.ms);

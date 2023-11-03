@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:weather_app/common/styles/app_colors.dart';
 import 'package:weather_app/common/styles/app_fonts.dart';
 import 'package:weather_app/common/styles/app_shapes.dart';
 import 'package:weather_app/features/details/view/widgets/icon_with_title.dart';
@@ -27,12 +26,9 @@ class TallInfoBox extends StatelessWidget {
       padding: const EdgeInsets.all(15),
       height: 220,
       decoration: ShapeDecoration(
-        color: AppColors.medium,
+        color: Theme.of(context).colorScheme.primary,
         shape: AppShapes.smoothRectangle(),
-        image: DecorationImage(
-          image: AssetImage(imagePath),
-          scale: 1.5,
-        ),
+        image: DecorationImage(image: AssetImage(imagePath)),
       ),
       child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -42,10 +38,15 @@ class TallInfoBox extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
-                Text(
-                  value,
-                  textAlign: TextAlign.end,
-                  style: AppFonts.header(fontSize: 40),
+                Flexible(
+                  child: Text(
+                    value,
+                    maxLines: 1,
+                    textAlign: TextAlign.end,
+                    style: AppFonts.header(
+                        fontSize: 40,
+                        color: Theme.of(context).colorScheme.secondary),
+                  ),
                 ),
               ],
             )

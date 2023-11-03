@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/common/extensions/double.dart';
 import 'package:weather_app/common/hero/hero_tags.dart';
-import 'package:weather_app/common/styles/app_colors.dart';
 import 'package:weather_app/common/styles/app_fonts.dart';
 
 class DetailsHeader extends StatelessWidget {
@@ -19,12 +18,13 @@ class DetailsHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Color secondaryColor = Theme.of(context).colorScheme.secondary;
     return Hero(
       tag: '${HeroTags.header}_$city',
       child: Material(
         child: Container(
           width: double.infinity,
-          color: AppColors.medium,
+          color: Theme.of(context).colorScheme.primary,
           padding: const EdgeInsets.symmetric(vertical: 30),
           child: SingleChildScrollView(
             physics: const NeverScrollableScrollPhysics(),
@@ -34,21 +34,21 @@ class DetailsHeader extends StatelessWidget {
                   bottom: false,
                   child: Text(
                     city,
-                    style: AppFonts.header(),
+                    style: AppFonts.header(color: secondaryColor),
                   ),
                 ),
                 Text(
                   country,
-                  style: AppFonts.body(),
+                  style: AppFonts.body(color: secondaryColor),
                 ),
                 Text(
                   temperature.formatTemperature(),
-                  style: AppFonts.header(fontSize: 40),
+                  style: AppFonts.header(fontSize: 40, color: secondaryColor),
                 ),
                 if (descriptions.isNotEmpty)
                   Text(
                     descriptions.first,
-                    style: AppFonts.body(),
+                    style: AppFonts.body(color: secondaryColor),
                   ),
               ],
             ),

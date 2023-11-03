@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:weather_app/common/styles/app_colors.dart';
 import 'package:weather_app/common/styles/app_fonts.dart';
 import 'package:weather_app/common/styles/app_shapes.dart';
 import 'package:weather_app/features/details/view/widgets/icon_with_title.dart';
@@ -21,12 +20,15 @@ class LargeInfoBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Color primaryColor = Theme.of(context).colorScheme.primary;
+    final Color secondaryColor = Theme.of(context).colorScheme.secondary;
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20),
       padding: const EdgeInsets.all(15),
       decoration: ShapeDecoration(
         shape: AppShapes.smoothRectangle(),
-        color: AppColors.medium,
+        color: primaryColor,
       ),
       width: double.infinity,
       child: Column(children: <Widget>[
@@ -38,11 +40,12 @@ class LargeInfoBox extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       entry.$1,
-                      style: AppFonts.body(fontWeight: FontWeight.bold),
+                      style: AppFonts.body(
+                          fontWeight: FontWeight.bold, color: secondaryColor),
                     ),
                     Text(
                       entry.$2,
-                      style: AppFonts.body(),
+                      style: AppFonts.body(color: secondaryColor),
                     ),
                   ]),
             ))

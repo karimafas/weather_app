@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/common/extensions/double.dart';
 import 'package:weather_app/common/hero/hero_tags.dart';
-import 'package:weather_app/common/styles/app_colors.dart';
 import 'package:weather_app/common/styles/app_fonts.dart';
 import 'package:weather_app/common/styles/app_shapes.dart';
 
@@ -21,6 +20,8 @@ class LocationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Color primaryColor = Theme.of(context).colorScheme.primary;
+    final Color secondaryColor = Theme.of(context).colorScheme.secondary;
     return Hero(
       tag: '${HeroTags.header}_$city',
       child: Material(
@@ -32,7 +33,7 @@ class LocationCard extends StatelessWidget {
             width: double.infinity,
             height: 100,
             decoration: ShapeDecoration(
-                shape: AppShapes.smoothRectangle(), color: AppColors.medium),
+                shape: AppShapes.smoothRectangle(), color: primaryColor),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
@@ -45,13 +46,13 @@ class LocationCard extends StatelessWidget {
                         city,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: AppFonts.header(),
+                        style: AppFonts.header(color: secondaryColor),
                       ),
                       Text(
                         country,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: AppFonts.body(),
+                        style: AppFonts.body(color: secondaryColor),
                       )
                     ],
                   ),
@@ -60,7 +61,7 @@ class LocationCard extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 15),
                   child: Text(
                     temperature.formatTemperature(),
-                    style: AppFonts.header(),
+                    style: AppFonts.header(color: secondaryColor),
                   ),
                 )
               ],

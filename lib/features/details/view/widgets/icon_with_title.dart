@@ -9,8 +9,10 @@ class IconWithTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Color secondaryColor = Theme.of(context).colorScheme.secondary;
     return Row(children: <Widget>[
-      Image.asset(iconPath, height: 20, color: Colors.white.withOpacity(0.45)),
+      Image.asset(iconPath,
+          height: 20, color: secondaryColor.withOpacity(0.45)),
       const SizedBox(width: 5),
       Flexible(
         child: Text(
@@ -20,7 +22,7 @@ class IconWithTitle extends StatelessWidget {
           style: AppFonts.body(
               fontWeight: FontWeight.bold,
               fontSize: 11.5,
-              color: Colors.white.withOpacity(0.45)),
+              color: secondaryColor.withOpacity(0.45)),
         ),
       )
     ]);

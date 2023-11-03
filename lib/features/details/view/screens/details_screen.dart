@@ -21,6 +21,7 @@ class DetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Color secondaryColor = Theme.of(context).colorScheme.secondary;
     return Scaffold(
       body: SizedBox.expand(
         child: Stack(
@@ -40,8 +41,14 @@ class DetailsScreen extends StatelessWidget {
                       iconPath: AppImages.wind.path,
                       title: 'details.wind'.tr(),
                       entries: <(String, String)>[
-                        ('details.speed'.tr(), '${current.windSpeed} km/h'),
-                        ('details.degree'.tr(), '${current.windDegree}'),
+                        (
+                          'details.speed'.tr(),
+                          '${current.windSpeed.toStringAsFixed(0)} km/h'
+                        ),
+                        (
+                          'details.degree'.tr(),
+                          current.windDegree.toStringAsFixed(0)
+                        ),
                         ('details.direction'.tr(), current.windDirection),
                       ]),
                   const SizedBox(height: 25),
@@ -50,13 +57,22 @@ class DetailsScreen extends StatelessWidget {
                       iconPath: AppImages.conditions.path,
                       title: 'details.conditions'.tr(),
                       entries: <(String, String)>[
-                        ('details.pressure'.tr(), '${current.pressure} MB'),
+                        (
+                          'details.pressure'.tr(),
+                          '${current.pressure.toStringAsFixed(0)} MB'
+                        ),
                         (
                           'details.precipitation'.tr(),
                           '${current.precipitation} mm'
                         ),
-                        ('details.humidity'.tr(), '${current.humidity}%'),
-                        ('details.visibility'.tr(), '${current.visibility} km'),
+                        (
+                          'details.humidity'.tr(),
+                          '${current.humidity.toStringAsFixed(0)}%'
+                        ),
+                        (
+                          'details.visibility'.tr(),
+                          '${current.visibility.toStringAsFixed(0)} km'
+                        ),
                       ]),
                   const SizedBox(height: 25),
                   Row(
@@ -67,7 +83,7 @@ class DetailsScreen extends StatelessWidget {
                           imagePath: AppImages.cloud.path,
                           iconPath: AppImages.clouds.path,
                           title: 'details.cloud_cover'.tr(),
-                          value: '${current.cloudCover}%',
+                          value: '${current.cloudCover.toStringAsFixed(0)}%',
                         ),
                       ),
                       Expanded(
@@ -83,7 +99,7 @@ class DetailsScreen extends StatelessWidget {
                           SmallInfoBox(
                             iconPath: AppImages.thermometer.path,
                             title: 'details.uv_index'.tr(),
-                            value: '${current.uvIndex}',
+                            value: current.uvIndex.toStringAsFixed(0),
                             index: 5,
                           ),
                         ],
@@ -96,7 +112,7 @@ class DetailsScreen extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 15),
                   child: BackButton(
-                    color: Colors.white,
+                    color: secondaryColor,
                     onPressed: () => context.popRoute(),
                   ),
                 )).animate(delay: 500.ms).fadeIn()
